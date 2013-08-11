@@ -56,7 +56,7 @@ void YUYVtoYUV444(int width, int height, unsigned char* src, unsigned char* dst)
 	unsigned char *tmp = dst;
 
 	for (line = 0; line < height; ++line) {
-		for (column = 0; column < width; ++column) {
+		for (column = 0; column < width; column += 2) {
 			py1 = src++;
 			pu  = src++;
 			py2 = src++;
