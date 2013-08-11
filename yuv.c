@@ -50,3 +50,24 @@ void YUV420toYUV444(int width, int height, unsigned char* src, unsigned char* ds
 	}
 }
 
+void YUYVtoYUV444(int width, int height, unsigned char* src, unsigned char* dst) {
+	int line, column;
+	unsigned char *py1, *pu, *py2, *pv;
+	unsigned char *tmp = dst;
+
+	for (line = 0; line < height; ++line) {
+		for (column = 0; column < width; ++column) {
+			py1 = src++;
+			pu  = src++;
+			py2 = src++;
+			pv  = src++;
+
+			*tmp++ = *py1;
+			*tmp++ = *pu;
+			*tmp++ = *pv;
+			*tmp++ = *py2;
+			*tmp++ = *pu;
+			*tmp++ = *pv;
+		}
+	}
+}
